@@ -47,4 +47,24 @@
 
 ## Бонус
 
+### Фабрика в двійнику (розробник)
+
+- Репо двійника: https://github.com/vhrytsyndyshynquitcode/property-workflows-factory
+- SHA двійника: a16b868073d6cd8ff8880ff0931192be97414932
+- Прод двійника: https://property-workflows-factory.vercel.app — https://property-workflows-factory.vercel.app/api/health (`db: ok`, sha — коміт деплою `main`; злиття фабрики — c7bc8cc2568ee2fca056216b5851881e3eeaad2a)
+- Тег `ws9-base` в основному репо: https://github.com/vhrytsyndyshynquitcode/property-workflows/tree/ws9-base
+- Фабрика й імпортер: курс-редакція koldovsky/2026-quitcode-09-factory @ 1280bc62cb001ded1fa31f15f45057d8b51f45f3; адаптер імпортера — https://github.com/vhrytsyndyshynquitcode/2026-quitcode-09-factory/commit/71ea218fa706f8bb187ffe3bde1424c7706ae432 (гілка `team/property-workflows`)
+- Формат вимог PM: issues «Вимога» з рядками `- AC-…: Дано … Коли … Тоді …` (lines); адаптер прибирає префікс «Requirement:» у назві задачі
+- Червоні тести (`tests-first`): https://github.com/vhrytsyndyshynquitcode/property-workflows-factory/tree/ws9-red — AC-VENDOR-01 … AC-VENDOR-10 (з тексту AC, не з основного репо)
+- Приховані сценарії: 4 набори (`vendor-role`, `vendor-access`, `vendor-run`, `vendor-lists`), 39 сценаріїв — по 4 на кожен AC (AC-VENDOR-05 — 3), запечатано; файли лише в теці контролю, не в git
+- AC, які доводить лише UAT: немає окремих — але UAT на проді двійника не виконано (див. нижче)
+- Прогони фабрики: run-20261109134056-955ac2 — released (5/5 спроб, $1.40); run-20261109142819-4b03ba — refused на допуску (AC вже виконано першим прогоном, $0)
+- Пакети доказів: b1ace0fc9a37a89a7bd7843dd0bc471d8e3a9f3155fdd46fa368c79e802d824f — в описі https://github.com/vhrytsyndyshynquitcode/property-workflows-factory/pull/1
+- PR фабрики з автозлиттям: https://github.com/vhrytsyndyshynquitcode/property-workflows-factory/pull/1 (`factory deliver` на справжньому репо, злито після required checks); db-deploy двійника — https://github.com/vhrytsyndyshynquitcode/property-workflows-factory/actions/runs/42634642583 (застосовано 20261109120000_vendor_role.sql)
+- UAT на проді двійника: не виконано — для синтетичних акаунтів двійника потрібен секретний ключ Supabase двійника локально, його не внесено; приховані сценарії 38/39 на c7bc8cc (HV03a — хиба самого сценарію)
+- Звіт порівняння: https://github.com/vhrytsyndyshynquitcode/property-workflows-factory/blob/a16b868073d6cd8ff8880ff0931192be97414932/docs/qa/factory-comparison.md
+- Втручання людини й ліміти: approve config 1, approve intent 4, approve plan 1, answer 2, deliver 1, ручних комітів у код продукту — 0; лімітів вистачило ($1.40 з $8 на прогін). Знайдена вада: вендор закриває останню обов'язкову задачу без підтвердження (ворота не зловили, позначив рецензент фабрики)
+
+### PM
+
 —
