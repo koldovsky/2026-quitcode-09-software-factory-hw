@@ -39,7 +39,7 @@
 - UAT — PR зі звітом і відео (C): https://github.com/markkern-hyra/therapy-scheduling/pull/44
 - UAT — негативний контроль (C): https://github.com/markkern-hyra/therapy-scheduling/pull/44 — npm run uat:nc: NC-1 → FAIL (R1), NC-2 → NEEDS-HUMAN (R3)
 - QA proof pack (C): https://github.com/markkern-hyra/therapy-scheduling/blob/77116dc0eeb0ada0dd3abf6144835dfd5716fce8/docs/qa/proof-pack.md
-- Не перевірено (C): повний Stryker на коді зрізу 3 (лише TS-мутант I8 і SQL-мутанти I1–I7); одночасна позначка двома працівниками (в AC не задана); приймання PM — після 10.11
+- Не перевірено (C): немає — кожен AC-INS-01…06 має тест і UAT PASS (R6) на проді. Поза AC (розділ «Не перевірено» proof pack): повний Stryker на коді зрізу 3 не запускали (є TS-мутант I8 і SQL-мутанти I1–I7, усі KILLED); одночасна позначка двома працівниками в AC не задана; приймання PM — після 10.11
 - Відхилення від PM (C): не надходило
 - Рядки `docs/conformance.md` (D): https://github.com/markkern-hyra/therapy-scheduling/blob/77116dc0eeb0ada0dd3abf6144835dfd5716fce8/docs/conformance.md
 - Акаунти для нових ролей зрізу 3 (D): нових ролей немає
@@ -54,7 +54,7 @@
 - Прод двійника: https://therapy-scheduling-factory.vercel.app — https://therapy-scheduling-factory.vercel.app/api/health (sha 4e4d359, db ok; код фабрики — злиття 4652f92)
 - Тег `ws9-base` в основному репо: https://github.com/markkern-hyra/therapy-scheduling/tree/ws9-base
 - Фабрика й імпортер: курс-редакція https://github.com/koldovsky/2026-quitcode-09-factory на коміті 1280bc62cb001ded1fa31f15f45057d8b51f45f3, без змін коду; імпортер tools/ac-to-task.mjs без адаптера
-- Формат вимог PM: issues «Вимога» з розділом «Критерії приймання», рядки «- AC-…: Дано … Коли … Тоді …» (lines) — імпортер без змін
+- Формат вимог PM: issue «Вимога» з розділом «Критерії приймання» → знімок requirements/33-planuvalnyk-poznachaie-status-perevirky.md (/requirements-sync, рядки «- AC-…: Дано … Коли … Тоді …»); імпорт `node tools/ac-to-task.mjs --file <двійник>/requirements/33-….md --ac AC-INS-01,…,AC-INS-06 --id insurance-status --holdout insurance-status --target <двійник> --size medium` — формат lines, імпортер без змін, адаптера немає
 - Червоні тести (`tests-first`): https://github.com/markkern-hyra/therapy-scheduling-factory/tree/ws9-red — AC-INS-01, AC-INS-02, AC-INS-03, AC-INS-04, AC-INS-05, AC-INS-06
 - Приховані сценарії: набір insurance-status — 23 сценарії (AC-INS-01 ×3, AC-INS-02 ×5, AC-INS-03 ×4, AC-INS-04 ×3, AC-INS-05 ×4, AC-INS-06 ×4), запечатано; файл лише в теці контролю, не в git
 - AC, які доводить лише UAT: частини AC-INS-04 («змінити не запропоновано» на сторінці) і AC-INS-06 («лише сторінка входу»); самі AC є в задачі через базу й серверну дію
